@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright (C) GrizzIT, Inc. All rights reserved.
  * See LICENSE for license details.
@@ -16,14 +17,14 @@ class ItemsValidator implements ValidatorInterface
      *
      * @var ValidatorInterface|ValidatorInterface[]|null
      */
-    private $items;
+    private ValidatorInterface | array | null $items;
 
     /**
      * The additional items will be validated against this validator.
      *
      * @var ValidatorInterface
      */
-    private $additionalItems;
+    private ValidatorInterface $additionalItems;
 
     /**
      * Constructor
@@ -32,7 +33,7 @@ class ItemsValidator implements ValidatorInterface
      * @param ValidatorInterface|null                      $additionalItems
      */
     public function __construct(
-        $items,
+        ValidatorInterface | array | null $items,
         ValidatorInterface $additionalItems = null
     ) {
         $this->items = $items;
@@ -46,7 +47,7 @@ class ItemsValidator implements ValidatorInterface
      *
      * @return bool
      */
-    public function __invoke($data): bool
+    public function __invoke(mixed $data): bool
     {
         if (!is_array($data)) {
             return true;

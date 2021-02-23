@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright (C) GrizzIT, Inc. All rights reserved.
  * See LICENSE for license details.
@@ -16,7 +17,7 @@ class EnumValidator implements ValidatorInterface
      *
      * @var mixed[]
      */
-    private $enum;
+    private array $enum;
 
     /**
      * Constructor
@@ -35,7 +36,7 @@ class EnumValidator implements ValidatorInterface
      *
      * @return bool
      */
-    public function __invoke($data): bool
+    public function __invoke(mixed $data): bool
     {
         $preparedData = DataPreparationHelper::prepareComparisonData($data);
         foreach ($this->enum as $option) {

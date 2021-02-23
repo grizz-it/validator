@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright (C) GrizzIT, Inc. All rights reserved.
  * See LICENSE for license details.
@@ -15,21 +16,21 @@ class IfThenElseValidator implements ValidatorInterface
      *
      * @var ValidatorInterface
      */
-    private $ifValidator;
+    private ValidatorInterface $ifValidator;
 
     /**
      * Contains the validator the then statement.
      *
      * @var ValidatorInterface|null
      */
-    private $thenValidator;
+    private ?ValidatorInterface $thenValidator;
 
     /**
      * Contains the validator for the else statement.
      *
      * @var ValidatorInterface|null
      */
-    private $elseValidator;
+    private ?ValidatorInterface $elseValidator;
 
     /**
      * Constructor
@@ -55,16 +56,20 @@ class IfThenElseValidator implements ValidatorInterface
      *
      * @return bool
      */
-    public function __invoke($data): bool
+    public function __invoke(mixed $data): bool
     {
         if (($this->ifValidator)($data)) {
-            if ($this->thenValidator !== null
-                && !($this->thenValidator)($data)) {
+            if (
+                $this->thenValidator !== null
+                && !($this->thenValidator)($data)
+            ) {
                 return false;
             }
         } else {
-            if ($this->elseValidator !== null
-                && !($this->elseValidator)($data)) {
+            if (
+                $this->elseValidator !== null
+                && !($this->elseValidator)($data)
+            ) {
                 return false;
             }
         }

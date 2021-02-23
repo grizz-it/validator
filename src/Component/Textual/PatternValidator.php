@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright (C) GrizzIT, Inc. All rights reserved.
  * See LICENSE for license details.
@@ -15,7 +16,7 @@ class PatternValidator implements ValidatorInterface
      *
      * @var string
      */
-    private $pattern;
+    private string $pattern;
 
     /**
      * Constructor
@@ -34,7 +35,7 @@ class PatternValidator implements ValidatorInterface
      *
      * @return bool
      */
-    public function __invoke($data): bool
+    public function __invoke(mixed $data): bool
     {
         return !(is_string($data)) || preg_match($this->pattern, $data) === 1;
     }

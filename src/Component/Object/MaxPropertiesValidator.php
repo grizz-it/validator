@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright (C) GrizzIT, Inc. All rights reserved.
  * See LICENSE for license details.
@@ -15,7 +16,7 @@ class MaxPropertiesValidator implements ValidatorInterface
      *
      * @var int
      */
-    private $maximum;
+    private int $maximum;
 
     /**
      * Constructor
@@ -34,7 +35,7 @@ class MaxPropertiesValidator implements ValidatorInterface
      *
      * @return bool
      */
-    public function __invoke($data): bool
+    public function __invoke(mixed $data): bool
     {
         return !(is_object($data))
             || count(get_object_vars($data)) <= $this->maximum;

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright (C) GrizzIT, Inc. All rights reserved.
  * See LICENSE for license details.
@@ -15,7 +16,7 @@ class MultipleOfValidator implements ValidatorInterface
      *
      * @var float
      */
-    private $modulus;
+    private float $modulus;
 
     /**
      * Constructor
@@ -34,7 +35,7 @@ class MultipleOfValidator implements ValidatorInterface
      *
      * @return bool
      */
-    public function __invoke($data): bool
+    public function __invoke(mixed $data): bool
     {
         if (!(is_int($data) || is_float($data))) {
             return true;

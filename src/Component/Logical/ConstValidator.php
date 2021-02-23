@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright (C) GrizzIT, Inc. All rights reserved.
  * See LICENSE for license details.
@@ -16,14 +17,14 @@ class ConstValidator implements ValidatorInterface
      *
      * @var mixed
      */
-    private $value;
+    private mixed $value;
 
     /**
      * Constructor
      *
      * @param mixed $value
      */
-    public function __construct($value)
+    public function __construct(mixed $value)
     {
         $this->value = DataPreparationHelper::prepareComparisonData($value);
     }
@@ -35,7 +36,7 @@ class ConstValidator implements ValidatorInterface
      *
      * @return bool
      */
-    public function __invoke($data): bool
+    public function __invoke(mixed $data): bool
     {
         return DataPreparationHelper::prepareComparisonData(
             $data

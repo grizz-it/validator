@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright (C) GrizzIT, Inc. All rights reserved.
  * See LICENSE for license details.
@@ -15,7 +16,7 @@ class DataPreparationHelper
      *
      * @var stdClass
      */
-    private static $defaultEmptyObject;
+    private static ?stdClass $defaultEmptyObject = null;
 
     /**
      * Prepares nested objects for direct comparison.
@@ -24,7 +25,7 @@ class DataPreparationHelper
      *
      * @return mixed
      */
-    public static function prepareComparisonData($data)
+    public static function prepareComparisonData(mixed $data): mixed
     {
         if (self::$defaultEmptyObject === null) {
             self::$defaultEmptyObject = new stdClass();

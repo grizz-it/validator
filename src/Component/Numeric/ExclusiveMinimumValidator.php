@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright (C) GrizzIT, Inc. All rights reserved.
  * See LICENSE for license details.
@@ -15,7 +16,7 @@ class ExclusiveMinimumValidator implements ValidatorInterface
      *
      * @var float
      */
-    private $minimum;
+    private float $minimum;
 
     /**
      * Constructor
@@ -34,7 +35,7 @@ class ExclusiveMinimumValidator implements ValidatorInterface
      *
      * @return bool
      */
-    public function __invoke($data): bool
+    public function __invoke(mixed $data): bool
     {
         return !(is_int($data) || is_float($data)) || $data > $this->minimum;
     }

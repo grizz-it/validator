@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright (C) GrizzIT, Inc. All rights reserved.
  * See LICENSE for license details.
@@ -15,7 +16,7 @@ class RequiredValidator implements ValidatorInterface
      *
      * @var string[]
      */
-    private $required;
+    private array $required;
 
     /**
      * Constructor
@@ -34,7 +35,7 @@ class RequiredValidator implements ValidatorInterface
      *
      * @return bool
      */
-    public function __invoke($data): bool
+    public function __invoke(mixed $data): bool
     {
         if (!is_object($data)) {
             return true;

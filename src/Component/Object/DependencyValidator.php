@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright (C) GrizzIT, Inc. All rights reserved.
  * See LICENSE for license details.
@@ -15,14 +16,14 @@ class DependencyValidator implements ValidatorInterface
      *
      * @var string
      */
-    private $key;
+    private string $key;
 
     /**
      * The validator which must be run if the key exists.
      *
      * @var ValidatorInterface
      */
-    private $validator;
+    private ValidatorInterface $validator;
 
     /**
      * Constructor
@@ -43,11 +44,11 @@ class DependencyValidator implements ValidatorInterface
      *
      * @return bool
      */
-    public function __invoke($data): bool
+    public function __invoke(mixed $data): bool
     {
         return !(is_object($data))
             || (property_exists($data, $this->key) ? ($this->validator)(
                 $data
-            ): true);
+            ) : true);
     }
 }

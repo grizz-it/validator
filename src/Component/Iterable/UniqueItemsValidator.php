@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright (C) GrizzIT, Inc. All rights reserved.
  * See LICENSE for license details.
@@ -16,7 +17,7 @@ class UniqueItemsValidator implements ValidatorInterface
      *
      * @var bool
      */
-    private $unique;
+    private bool $unique;
 
     /**
      * Constructor
@@ -35,7 +36,7 @@ class UniqueItemsValidator implements ValidatorInterface
      *
      * @return bool
      */
-    public function __invoke($data): bool
+    public function __invoke(mixed $data): bool
     {
         if (!is_array($data) || $this->unique === false) {
             return true;

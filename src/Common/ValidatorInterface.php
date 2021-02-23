@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright (C) GrizzIT, Inc. All rights reserved.
  * See LICENSE for license details.
@@ -11,9 +12,9 @@ interface ValidatorInterface
     /**
      * Validate the data against the validator.
      *
-     * @param string|object|array $data
+     * @param mixed $data
      *
      * @return bool
      */
-    public function __invoke($data): bool;
+    public function __invoke(mixed $data): bool;
 }

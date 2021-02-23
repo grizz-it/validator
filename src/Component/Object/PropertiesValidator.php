@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright (C) GrizzIT, Inc. All rights reserved.
  * See LICENSE for license details.
@@ -16,28 +17,28 @@ class PropertiesValidator implements ValidatorInterface
      *
      * @var ValidatorInterface[]
      */
-    private $properties;
+    private array $properties;
 
     /**
      * The additional property configuration that needs to be validated.
      *
      * @var ValidatorInterface
      */
-    private $additionalProperties;
+    private ValidatorInterface $additionalProperties;
 
     /**
      * The pattern properties configuration that needs to be validated.
      *
      * @var ValidatorInterface[]
      */
-    private $patternProperties;
+    private array $patternProperties;
 
     /**
      * The property names validator.
      *
      * @var ValidatorInterface
      */
-    private $propertyNames;
+    private ValidatorInterface $propertyNames;
 
     /**
      * Constructor
@@ -67,7 +68,7 @@ class PropertiesValidator implements ValidatorInterface
      *
      * @return bool
      */
-    public function __invoke($data): bool
+    public function __invoke(mixed $data): bool
     {
         if (!is_object($data)) {
             return true;

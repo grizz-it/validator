@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright (C) GrizzIT, Inc. All rights reserved.
  * See LICENSE for license details.
@@ -15,7 +16,7 @@ class ContainsValidator implements ValidatorInterface
      *
      * @var ValidatorInterface
      */
-    private $validator;
+    private ValidatorInterface $validator;
 
     /**
      * Constructor
@@ -34,7 +35,7 @@ class ContainsValidator implements ValidatorInterface
      *
      * @return bool
      */
-    public function __invoke($data): bool
+    public function __invoke(mixed $data): bool
     {
         if (!is_array($data)) {
             return true;
