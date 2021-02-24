@@ -14,9 +14,9 @@ class AlwaysValidator implements ValidatorInterface
     /**
      * Whether the data passed to this validator should always return true or false.
      *
-     * @var null|bool
+     * @var bool
      */
-    private ?bool $alwaysBool;
+    private bool $alwaysBool;
 
     /**
      * Constructor

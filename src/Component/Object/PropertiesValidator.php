@@ -17,7 +17,7 @@ class PropertiesValidator implements ValidatorInterface
      *
      * @var ValidatorInterface[]
      */
-    private array $properties;
+    private ?array $properties;
 
     /**
      * The additional property configuration that needs to be validated.
@@ -31,14 +31,14 @@ class PropertiesValidator implements ValidatorInterface
      *
      * @var ValidatorInterface[]
      */
-    private array $patternProperties;
+    private ?array $patternProperties;
 
     /**
      * The property names validator.
      *
      * @var ValidatorInterface
      */
-    private ValidatorInterface $propertyNames;
+    private ?ValidatorInterface $propertyNames;
 
     /**
      * Constructor
